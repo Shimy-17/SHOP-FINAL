@@ -1,16 +1,21 @@
 package com.example.bsweb.controller;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
+import com.example.bsweb.entity.User;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
-@Controller
+@RestController
 public class GreetingController {
 
     @GetMapping("/")
-    public String index(Model model){
-        model.addAttribute("name", "Alexandr");
+    public String index(){
+        return "hello, Alexandr";
+    }
 
-        return "index";
+    @PostMapping(value="/", consumes = "application/json")
+    @ResponseStatus(HttpStatus.CREATED)
+    public User indexPost(@RequestBody User user){
+
+        return user;
     }
 }
