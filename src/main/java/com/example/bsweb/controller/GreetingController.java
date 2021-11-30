@@ -12,7 +12,7 @@ public class GreetingController {
         return "hello, Alexandr";
     }
 
-    @PostMapping(value="/", consumes = "application/json")
+    @PostMapping(value="/", consumes = "application/json", produces = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
     public User indexPost(@RequestBody User user){
 
